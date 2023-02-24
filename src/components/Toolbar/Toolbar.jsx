@@ -39,7 +39,7 @@ const Toolbar = () => {
         nav.classList.remove(styles.slide_in)
         nav.classList.add(styles.slide_out)
         nav.addEventListener('animationend', () => {
-            nav.style.left = '-30rem';
+            nav.style.left = '-25rem';
             close.classList.remove(styles.active)
             navBackdrop.classList.remove(styles.active)
         })
