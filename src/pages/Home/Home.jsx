@@ -84,7 +84,10 @@ const Home = () => {
         // Emit the music id to socket.io
         socket = io(endpoint)
         socket.emit('musicId-to-dj', musicId)
-        navigate('/dj')
+
+        setTimeout(()=>{
+          navigate('/dj')
+        }, 2000)
       }
     })
     .catch(error =>{
