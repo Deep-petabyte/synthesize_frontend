@@ -1,0 +1,37 @@
+.sidebar{
+    background:#000;
+    width:fit-content;
+
+    @media screen and (max-width:900px){
+        display:none;
+    }
+}
+.sidebar_logo{
+    margin: 2rem 1.5rem;
+    padding:10px;
+}
+.sidebar_links{
+
+    a{
+        margin:0 2rem;
+        padding:1rem 1.5rem;
+        border-radius:4rem;
+        display:flex;
+        align-items:center;
+        color:#fff;
+
+        &:first-child{
+            margin-top:2rem;
+        }
+
+        &:hover{
+            background:#302d2d;
+        }
+
+        label{
+            margin-left:1.3rem;
+            font-size:1.6rem;
+        }
+    }
+    
+}

@@ -1,0 +1,43 @@
+.card{
+    height:28.6rem;
+    width:28.6rem;
+    border-radius:3.5rem;
+    background-size: cover;
+    display:flex;
+    flex-direction:column;
+    padding:2rem;
+    cursor:pointer;
+    position:relative;
+
+    &:hover .play_btn{
+        display:block;
+    }
+}
+.cardTitle{
+    border-radius:2rem;
+    background:rgba(0,0,0,.6);
+    margin-top:auto;
+    color:#fff;
+    font-size:1.6rem;
+    padding:1rem .5rem;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+.play_btn{
+    cursor:pointer;
+    width:fit-content;
+    background:#1FDF64;
+    outline:none;
+    border-radius:22rem;
+    border:none;
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+
+    img{
+        vertical-align: middle;
+    }
+}

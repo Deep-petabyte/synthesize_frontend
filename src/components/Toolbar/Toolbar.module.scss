@@ -1,0 +1,126 @@
+.toolbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:2rem;
+    padding-bottom: 4rem;
+
+    @media screen and (min-width:900px){
+        display:none;
+    }
+}
+
+.navigationWrapper{
+    z-index:99999;
+    display:flex;
+    position:fixed;
+    top:0;
+    left:-30rem;
+    max-width:30rem;
+    width:100%;
+    height:100%;
+
+    &.slide_in{
+        animation: slide-in 400ms linear;
+    }
+    &.slide_out{
+        animation: slide-out 400ms linear;
+        animation-delay:250ms;
+    }
+    @media screen and (min-width:900px){
+        display:none;
+    }
+}
+@keyframes slide-in{
+    to{
+        left:0;
+    }
+}
+@keyframes slide-out{
+    to{
+        left:-30rem;
+    }
+}
+
+.navigation{
+    background:rgb(26,28,30);
+    border-right: 1px solid #ddd;
+    flex:1;
+}
+.navigation_logo{
+    margin: 2rem 1.5rem;
+    padding:10px;
+}
+.navigation_links{
+
+    a{
+        margin:0 2rem;
+        padding:1rem 1.5rem;
+        border-radius:4rem;
+        display:flex;
+        align-items:center;
+        color:#fff;
+
+        &:first-child{
+            margin-top:2rem;
+        }
+
+        &:hover{
+            background:#302d2d;
+        }
+
+        label{
+            margin-left:1.3rem;
+            font-size:1.6rem;
+        }
+    }
+    
+}
+
+.navigation_backdrop{
+    height:100vh;
+    width:100%;
+    background:rgba(0,0,0,.1);
+    backdrop-filter: blur(5px);
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:88888;
+    display:none;
+
+    &.active{
+        display: block;
+        
+        @media screen and (min-width:900px){
+            display:none;
+        }
+    }
+
+    @media screen and (min-width:900px){
+        display:none;
+    }
+}
+
+.navigation_close{
+    margin-left: 1.5rem;
+    margin-top:3rem;
+    height:4rem;
+    width:4rem;
+    background:#fff;
+    border-radius:50%;
+    opacity:0;
+    transform: scale(0);
+    display:grid;
+    place-items:center;
+    box-shadow:0 0 10px 2px rgba(226, 176, 176, 0.1);
+    transition: 250ms ease;
+
+    &.active{
+        opacity:1;
+        transform: scale(1);   
+    }
+
+    span{
+        color:#888;
+    }
+}
