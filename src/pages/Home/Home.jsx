@@ -16,10 +16,14 @@ const Home = () => {
 
   const navigate = useNavigate()
 
-  const [page, setPage] = useState(1)
+  let user_page = JSON.parse(localStorage.getItem('page')) ? localStorage.getItem('page') : 1
+
+  const [page, setPage] = useState(user_page)
   const [musics, setMusics] = useState([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(false)
+
+  console.log(user_page)
 
   useEffect(()=>{
     fetch(`${endpoint}/user`,{
@@ -100,10 +104,18 @@ const Home = () => {
   }
 
   const nextPage = () =>{
-    setPage(e => e += 1)
+    setPage(e => {
+      let p = e + 1
+      localStorage.setItem("page", p)
+      return p
+    })
   }
   const prevPage = () =>{
-    setPage(e => e <= 1 ? e : e -= 1)
+    setPage(e => {
+      let p = e <= 1 ? e : e -= 1 
+      localStorage.setItem("page", JSON.stringify(p))
+      return p
+    })
   }
 
   const mainContent = loading ? <div className={styles.loader}>
