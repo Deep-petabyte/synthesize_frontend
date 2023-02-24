@@ -86,9 +86,7 @@ const Home = () => {
         socket.emit('musicId-to-dj', musicId)
         localStorage.setItem("currentSong", JSON.stringify(result))
 
-        setTimeout(()=>{
-          navigate('/dj')
-        }, 2000)
+        navigate('/dj')
       }
     })
     .catch(error =>{
