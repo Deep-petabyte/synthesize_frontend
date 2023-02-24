@@ -11,12 +11,13 @@ let socket;
 
 const Dj = () => {
 
-  const [musicReq, setMusicReq] = useState(null)
+  const [musicReq, setMusicReq] = useState(JSON.parse(localStorage.getItem("currentSong")))
 
   useEffect(()=>{
     socket = io(endpoint)
     socket.on('requested-musicId', result =>{
       setMusicReq(result)
+      localStorage.setItem("currentSong", JSON.stringify(result))
     })
   }, [musicReq])
 
@@ -39,6 +40,10 @@ const Dj = () => {
               <img className={styles.music_card_audio} src={audio} alt="audio playing"/>
               {playAudio(musicReq.preview_url)}
             </MusicCard>
+          }
+
+          {
+            !musicReq && <h1 className={styles.no_song}>NO SONG SELECTED! ☹️</h1>
           }
           
         </div>

@@ -89,6 +89,13 @@ const Home = () => {
     })
   }
 
+  const nextPage = () =>{
+    setPage(e => e += 1)
+  }
+  const prevPage = () =>{
+    setPage(e => e <= 1 ? e : e -= 1)
+  }
+
   const mainContent = loading ? <div className={styles.loader}>
     <Spinner />
   </div> : <div className={styles.content}>
@@ -114,6 +121,11 @@ const Home = () => {
         :
         mainContent
       }
+
+      { !error && <div className={styles.btnBox}>
+      <button className={styles.btn}><span className="material-icons" onClick={prevPage}> chevron_left </span></button>
+      <button className={styles.btn}><span className="material-icons" onClick={nextPage}> chevron_right </span></button>
+      </div>}
     </section>
   )
 }
