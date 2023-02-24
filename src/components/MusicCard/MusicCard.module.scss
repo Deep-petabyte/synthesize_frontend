@@ -6,4 +6,8 @@
     display:flex;
     background:#ddd;
     width:fit-content;
+
+    @media screen and (max-width:768px){
+        flex-direction: column;
+    }
 }

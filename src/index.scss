@@ -36,6 +36,8 @@ a {
 
   @media screen and (max-width:900px){
       padding-top: 0;
+      padding-left: 1rem;
+      padding-right: 1rem;
   }
 
   &::-webkit-scrollbar{
