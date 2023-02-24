@@ -4,7 +4,7 @@ import {endpoint} from '../../utils/endpoint'
 import io from 'socket.io-client'
 import Card from '../../components/Card/Card';
 import MusicCard from '../../components/MusicCard/MusicCard'
-import audio from '../../assets/wave-play-unscreen.gif'
+import audio from '../../assets/waveanimation.gif'
 import Toolbar from '../../components/Toolbar/Toolbar';
 import {Helmet} from 'react-helmet'
 
@@ -40,7 +40,9 @@ const Dj = () => {
         <div className={styles.content}>
           {
             musicReq && <MusicCard key={musicReq._id}>
-              <Card title={musicReq.name} imgUrl={musicReq.image_url} showBtn={false}/>
+              <div className={styles.card} style={{backgroundImage: `url(${musicReq.image_url})`}}>
+                <div className={styles.cardTitle}>{musicReq.name}</div>
+              </div>
               <img className={styles.music_card_audio} src={audio} alt="audio playing"/>
               {playAudio(musicReq.preview_url)}
             </MusicCard>

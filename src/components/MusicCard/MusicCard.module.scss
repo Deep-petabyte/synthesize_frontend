@@ -6,8 +6,16 @@
     display:flex;
     background:#ddd;
     width:fit-content;
+    align-items: center;
+    column-gap: 2rem;
+    row-gap: 2rem;
+
 
     @media screen and (max-width:768px){
         flex-direction: column;
+        margin: 0 auto;
+    }
+    @media screen and (max-width:425px){
+        padding:1rem;
     }
 }

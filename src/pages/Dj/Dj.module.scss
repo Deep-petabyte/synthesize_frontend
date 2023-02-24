@@ -8,10 +8,58 @@
 }
 
 .music_card_audio{
-    height:28.6rem;
+    max-height:28.6rem;
+    height: 100%;
+    max-width:18.6rem;
+    width:100%;
 }
 
 .no_song{
     color:#1FDF64;
     font-size:2rem;
+}
+
+.card{
+    height:28.6rem;
+    width:28.6rem;
+    border-radius:3.5rem;
+    background-size: cover;
+    display:flex;
+    flex-direction:column;
+    padding:2rem;
+    cursor:pointer;
+    position:relative;
+
+    @media screen and (max-width:340px){
+        height:22.6rem;
+        max-width:22.6rem;
+        width:100%;
+    }
+
+    @media screen and (max-width:280px){
+        height:18.6rem;
+        max-width:18.6rem;
+        width:100%;
+    }
+
+    &:hover .play_btn{
+        display:block;
+    }
+}
+.cardTitle{
+    border-radius:2rem;
+    background:rgba(0,0,0,.6);
+    margin-top:auto;
+    color:#fff;
+    font-size:1.6rem;
+    padding:1rem .8rem;
+    text-align: center;
+    text-transform: capitalize;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+
+    @media screen and (max-width:425px){
+        font-size:1.4rem;
+    }
 }
