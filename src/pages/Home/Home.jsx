@@ -84,6 +84,7 @@ const Home = () => {
         // Emit the music id to socket.io
         socket = io(endpoint)
         socket.emit('musicId-to-dj', musicId)
+        localStorage.setItem("currentSong", JSON.stringify(result))
 
         setTimeout(()=>{
           navigate('/dj')
