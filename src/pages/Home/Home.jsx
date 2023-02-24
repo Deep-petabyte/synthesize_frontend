@@ -7,9 +7,12 @@ import Spinner from '../../components/Spinner/Spinner'
 import { toast } from 'react-toastify';
 import io from 'socket.io-client'
 import Toolbar from '../../components/Toolbar/Toolbar'
+import {useNavigate} from 'react-router-dom'
 
 let socket;
 const Home = () => {
+
+  const navigate = useNavigate()
 
   const [page, setPage] = useState(1)
   const [musics, setMusics] = useState([])
@@ -81,6 +84,7 @@ const Home = () => {
         // Emit the music id to socket.io
         socket = io(endpoint)
         socket.emit('musicId-to-dj', musicId)
+        navigate('/dj')
       }
     })
     .catch(error =>{
