@@ -8,6 +8,8 @@ import { toast } from 'react-toastify';
 import io from 'socket.io-client'
 import Toolbar from '../../components/Toolbar/Toolbar'
 import {useNavigate} from 'react-router-dom'
+import {Helmet} from 'react-helmet'
+
 
 let socket;
 const Home = () => {
@@ -58,8 +60,8 @@ const Home = () => {
     Confirm.open({
       title: `Synthesize - ${title}`,
       message: 'Are you sure you want to send this music request to the DJ?',
-      onok: () => {
-        requestMusic(musicId)
+      onok: async () => {
+        await requestMusic(musicId)
       }
     })
   }
@@ -84,9 +86,11 @@ const Home = () => {
         // Emit the music id to socket.io
         socket = io(endpoint)
         socket.emit('musicId-to-dj', musicId)
-        localStorage.setItem("currentSong", JSON.stringify(result))
 
-        navigate('/dj')
+        socket.on('requested-musicId', result =>{
+          localStorage.setItem("currentSong", JSON.stringify(result))
+          navigate('/dj')
+        })
       }
     })
     .catch(error =>{
@@ -103,6 +107,9 @@ const Home = () => {
   }
 
   const mainContent = loading ? <div className={styles.loader}>
+          <Helmet>
+        <title>Synthesize</title>
+      </Helmet>
     <Spinner />
   </div> : <div className={styles.content}>
     {

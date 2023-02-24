@@ -6,6 +6,7 @@ import Card from '../../components/Card/Card';
 import MusicCard from '../../components/MusicCard/MusicCard'
 import audio from '../../assets/wave-play-unscreen.gif'
 import Toolbar from '../../components/Toolbar/Toolbar';
+import {Helmet} from 'react-helmet'
 
 let socket;
 
@@ -29,6 +30,9 @@ const Dj = () => {
 
   return (
     <section className="page_scaffold">
+      <Helmet>
+        <title>DJ Sync on the Mix</title>
+      </Helmet>
         <Toolbar/>
         <div className={styles.title}>
             <h1>DJ Sync</h1>
